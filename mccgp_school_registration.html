@@ -23,11 +23,11 @@
         </div>
       </div>
 
-      <form id="mccgp-school-registration" method="POST" action="">
+      <form id="mccgp-school-registration" method="POST" action="https://script.google.com/macros/s/AKfycbye7RSjKFHJhhi9UeLNTRJjveausZK21ji-3_WYpA/exec">
 
-        <!-- Residence -->
+        <!-- Registered? -->
         <div class="form-group">
-          <h5 class="">Have your registered with us before?</h5>
+          <h5 class="">Have you registered with us before?</h5>
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
@@ -43,21 +43,442 @@
             </div>
           </div></br>
         </div>
-
-        <!-- First Name -->
-        <div class="form-group" style="display:none">
-        <!--h5 class="" for="First_Name">First Name</h5-->
+        <!-- Email -->
+        <div id="email_section" class="form-group" style="display:none">
+          <!--h5 class="" for="Last_Name">Last Name</h5-->
+          <div id="email_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+          Please enter a valid email address
+          </div>
           <div class="controls">
-            <input class="w-30" type="text" id="first_name" name="first_name" disabled placeholder="Enter your First Name here">
+            <input class="w-50" type="text" id="email_id" name="email"  placeholder="Please provide your email">
           </div></br>
         </div>
 
-        <!-- Last Name -->
-        <div class="form-group" style="display:none">
-          <!--h5 class="" for="Last_Name">Last Name</h5-->
-          <div class="controls">
-            <input class="w-30" type="text" id="last_name" name="last_name" disabled placeholder="Enter your Last Name here">
-          </div></br>
+        <div class="card bg-light border-primary mb-3" style="max-width: 18rem; display:block">
+          <div class="card-header">
+            First Child (Required)
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child1 First Name -->
+            <div id="child1_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child1_First_Name">First Name</h6>
+            <div id="child1_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child1_first_name_id" name="child1_first_name" >
+              </div></br>
+            </div>
+            <!-- Child1 Last Name -->
+            <div id="child1_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child1_Last_Name">Last Name</h6>
+            <div id="child1_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child1_last_name_id" name="child1_last_name" >
+              </div></br>
+            </div>
+            <!-- Child1 Gender -->
+            <div id="child1_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child1_gender" id="child1_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child1_gender" id="child1_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child1 DOB -->
+            <div id="child1_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child1_DOB">Date of Birth</h6>
+              <div id="child1_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child1_dob_id" name="child1_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card border-light mb-3" style="max-width: 18rem; display:block">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Second Child (if applicable)
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child2 First Name -->
+            <div id="child2_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_First_Name">First Name</h6>
+            <div id="child2_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_first_name_id" name="child2_first_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Last Name -->
+            <div id="child2_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_Last_Name">Last Name</h6>
+            <div id="child2_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_last_name_id" name="child2_last_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Gender -->
+            <div id="child2_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child2 DOB -->
+            <div id="child2_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child2_DOB">Date of Birth</h6>
+              <div id="child2_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child2_dob_id" name="child2_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card border-light mb-3" style="max-width: 18rem; display:block">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Third Child (if applicable)
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child3 First Name -->
+            <div id="child3_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child3_First_Name">First Name</h6>
+            <div id="child3_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child3_first_name_id" name="child3_first_name" >
+              </div></br>
+            </div>
+            <!-- Child3 Last Name -->
+            <div id="child3_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child3_Last_Name">Last Name</h6>
+            <div id="child3_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child3_last_name_id" name="child3_last_name" >
+              </div></br>
+            </div>
+            <!-- Child3 Gender -->
+            <div id="child3_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child3_gender" id="child3_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child3_gender" id="child3_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child3 DOB -->
+            <div id="child3_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child3_DOB">Date of Birth</h6>
+              <div id="child3_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child3_dob_id" name="child3_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card border-light mb-3" style="max-width: 18rem; display:block">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Fourth Child (if applicable)
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child2 First Name -->
+            <div id="child4_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child4_First_Name">First Name</h6>
+            <div id="child4_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child4_first_name_id" name="child4_first_name" >
+              </div></br>
+            </div>
+            <!-- Child4 Last Name -->
+            <div id="child4_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child4_Last_Name">Last Name</h6>
+            <div id="child4_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_last_name_id" name="child2_last_name" >
+              </div></br>
+            </div>
+            <!-- Child4 Gender -->
+            <div id="child4_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child4_gender" id="child4_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child4_gender" id="child4_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child4 DOB -->
+            <div id="child4_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child2_DOB">Date of Birth</h6>
+              <div id="child4_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child4_dob_id" name="child4_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card bg-light border-primary mb-3" style="max-width: 18rem; display:block">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Mother
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Mother First Name -->
+            <div id="mother_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Mother_First_Name">First Name</h6>
+            <div id="mother_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="mother_first_name_id" name="mother_first_name" >
+              </div></br>
+            </div>
+            <!-- Mother Last Name -->
+            <div id="mother_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Mother_Last_Name">Last Name</h6>
+            <div id="mother_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="mother_last_name_id" name="mother_last_name" >
+              </div></br>
+            </div>
+            <!-- Mother Phone -->
+            <div id="mother_phone_section" class="form-group" style="display:block">
+              <h6 class="" for="Mother_Phone">Cell Phone</h6>
+              <div id="mother_phone_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the cell phone in XXX-XXX-XXXX
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="mother_phone_id" name="mother_phone" placeholder="XXX-XXX-XXXX">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card bg-light border-primary mb-3" style="max-width: 18rem; display:block">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Father
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Father First Name -->
+            <div id="father_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Father_First_Name">First Name</h6>
+            <div id="father_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="father_first_name_id" name="father_first_name" >
+              </div></br>
+            </div>
+            <!-- Father Last Name -->
+            <div id="father_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Father_Last_Name">Last Name</h6>
+            <div id="father_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="father_last_name_id" name="father_last_name" >
+              </div></br>
+            </div>
+            <!-- Mother Phone -->
+            <div id="father_phone_section" class="form-group" style="display:block">
+              <h6 class="" for="Mother_Phone">Cell Phone</h6>
+              <div id="father_phone_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the cell phone in XXX-XXX-XXXX
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="father_phone_id" name="father_phone" placeholder="XXX-XXX-XXXX">
+              </div>
+            </div>
+          </div>
+        </div><br/>
+
+        <div class="card bg-light border-primary mb-3" style="max-width: 18rem;">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Residence
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child2 First Name -->
+            <div id="child2_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_First_Name">First Name</h6>
+            <div id="child2_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_first_name_id" name="child2_first_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Last Name -->
+            <div id="child2_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_Last_Name">Last Name</h6>
+            <div id="child2_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_last_name_id" name="child2_last_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Gender -->
+            <div id="child2_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child2 DOB -->
+            <div id="child2_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child2_DOB">Date of Birth</h6>
+              <div id="child2_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child2_dob_id" name="child2_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+          <!--img class="card-img-top" src="..." alt="Card image cap"-->
+          <div class="card-header">
+            Second Child Information (if applicable)
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!-- Child2 First Name -->
+            <div id="child2_first_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_First_Name">First Name</h6>
+            <div id="child2_first_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter first name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_first_name_id" name="child2_first_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Last Name -->
+            <div id="child2_last_name_section" class="form-group" style="display:block">
+            <h6 class="" for="Child2_Last_Name">Last Name</h6>
+            <div id="child2_last_name_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            Please enter last name
+            </div>
+            <div class="controls">
+                <input class="w-75" type="text" id="child2_last_name_id" name="child2_last_name" >
+              </div></br>
+            </div>
+            <!-- Child2 Gender -->
+            <div id="child2_gender_section" class="form-group" style="display:block">
+              <h6 class="">Gender</h6>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_male" value="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_female" value="Female">
+                    Female
+                  </label>
+                </div>
+              </div></br>
+            </div>
+            <!-- Child2 DOB -->
+            <div id="child2_dob_section" class="form-group" style="display:block">
+              <h6 class="" for="Child2_DOB">Date of Birth</h6>
+              <div id="child2_dob_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please enter the date of birth in MM/DD/YYYY format
+              </div>
+              <div class="controls">
+                  <input class="w-75" type="date" id="child2_dob_id" name="child2_dob" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="form-group">
@@ -79,7 +500,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script data-cfasync="false" type="text/javascript" src="ramadan-eid-survey-form-submission-handler.js"></script>
+    <script data-cfasync="false" type="text/javascript" src="mccgp_school_registration_handler.js"></script>
     <!-- obtain client's ip address -->
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 
