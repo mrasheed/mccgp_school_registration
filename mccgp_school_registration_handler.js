@@ -67,7 +67,7 @@ function get_form_data() {
   });
 
   // add form-specific values into the data
-  data.IP_Address = ip_addr;
+  data["IP Address"] = ip_addr;
   data.formDataNameOrder = JSON.stringify(fields);
   data.formGoogleSheetName = form.dataset.sheet || "Registration"; // default sheet name
   data.formGoogleSendEmail = form.dataset.Email || ""; // no email by default
@@ -75,16 +75,312 @@ function get_form_data() {
   return data;
 }
 
+// Reset all alerts.
+function reset_alerts() {
+  document.getElementById("child1_first_name_alert").style.display = "none";
+  document.getElementById("child1_first_name_id").classList.remove("border");
+  document.getElementById("child1_first_name_id").classList.remove("border-danger");
+  document.getElementById("child1_last_name_alert").style.display = "none";
+  document.getElementById("child1_last_name_id").classList.remove("border");
+  document.getElementById("child1_last_name_id").classList.remove("border-danger");
+  document.getElementById("child1_gender_alert").style.display = "none";
+  document.getElementById("child1_dob_alert").style.display = "none";
+  document.getElementById("child1_dob_id").classList.remove("border");
+  document.getElementById("child1_dob_id").classList.remove("border-danger");
+  document.getElementById("child2_first_name_alert").style.display = "none";
+  document.getElementById("child2_first_name_id").classList.remove("border");
+  document.getElementById("child2_first_name_id").classList.remove("border-danger");
+  document.getElementById("child2_last_name_alert").style.display = "none";
+  document.getElementById("child2_last_name_id").classList.remove("border");
+  document.getElementById("child2_last_name_id").classList.remove("border-danger");
+  document.getElementById("child2_gender_alert").style.display = "none";
+  document.getElementById("child2_dob_alert").style.display = "none";
+  document.getElementById("child2_dob_id").classList.remove("border");
+  document.getElementById("child2_dob_id").classList.remove("border-danger");
+  document.getElementById("child3_first_name_alert").style.display = "none";
+  document.getElementById("child3_first_name_id").classList.remove("border");
+  document.getElementById("child3_first_name_id").classList.remove("border-danger");
+  document.getElementById("child3_last_name_alert").style.display = "none";
+  document.getElementById("child3_last_name_id").classList.remove("border");
+  document.getElementById("child3_last_name_id").classList.remove("border-danger");
+  document.getElementById("child3_gender_alert").style.display = "none";
+  document.getElementById("child3_dob_alert").style.display = "none";
+  document.getElementById("child3_dob_id").classList.remove("border");
+  document.getElementById("child3_dob_id").classList.remove("border-danger");
+  document.getElementById("child4_first_name_alert").style.display = "none";
+  document.getElementById("child4_first_name_id").classList.remove("border");
+  document.getElementById("child4_first_name_id").classList.remove("border-danger");
+  document.getElementById("child4_last_name_alert").style.display = "none";
+  document.getElementById("child4_last_name_id").classList.remove("border");
+  document.getElementById("child4_last_name_id").classList.remove("border-danger");
+  document.getElementById("child4_gender_alert").style.display = "none";
+  document.getElementById("child4_dob_alert").style.display = "none";
+  document.getElementById("child4_dob_id").classList.remove("border");
+  document.getElementById("child4_dob_id").classList.remove("border-danger");
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById("mother_first_name_alert").style.display = "none";
+  document.getElementById("mother_first_name_id").classList.remove("border");
+  document.getElementById("mother_first_name_id").classList.remove("border-danger");
+  document.getElementById("mother_last_name_alert").style.display = "none";
+  document.getElementById("mother_last_name_id").classList.remove("border");
+  document.getElementById("mother_last_name_id").classList.remove("border-danger");
+  document.getElementById("mother_phone_alert").style.display = "none";
+  document.getElementById("mother_phone_id").classList.remove("border");
+  document.getElementById("mother_phone_id").classList.remove("border-danger");
+  document.getElementById("mother_email_alert").style.display = "none";
+  document.getElementById("mother_email_id").classList.remove("border");
+  document.getElementById("mother_email_id").classList.remove("border-danger");
+  document.getElementById("father_first_name_alert").style.display = "none";
+  document.getElementById("father_first_name_id").classList.remove("border");
+  document.getElementById("father_first_name_id").classList.remove("border-danger");
+  document.getElementById("father_last_name_alert").style.display = "none";
+  document.getElementById("father_last_name_id").classList.remove("border");
+  document.getElementById("father_last_name_id").classList.remove("border-danger");
+  document.getElementById("father_phone_alert").style.display = "none";
+  document.getElementById("father_phone_id").classList.remove("border");
+  document.getElementById("father_phone_id").classList.remove("border-danger");
+  document.getElementById("father_email_alert").style.display = "none";
+  document.getElementById("father_email_id").classList.remove("border");
+  document.getElementById("father_email_id").classList.remove("border-danger");
+  document.getElementById("address_alert").style.display = "none";
+  document.getElementById("address_id").classList.remove("border");
+  document.getElementById("address_id").classList.remove("border-danger");
+  document.getElementById("city_alert").style.display = "none";
+  document.getElementById("city_id").classList.remove("border");
+  document.getElementById("city_id").classList.remove("border-danger");
+  document.getElementById("zip_alert").style.display = "none";
+  document.getElementById("zip_id").classList.remove("border");
+  document.getElementById("zip_id").classList.remove("border-danger");
+  document.getElementById("home_phone_alert").style.display = "none";
+  document.getElementById("home_phone_id").classList.remove("border");
+  document.getElementById("home_phone_id").classList.remove("border-danger");
+  document.getElementById("emergency_name_alert").style.display = "none";
+  document.getElementById("emergency_name_id").classList.remove("border");
+  document.getElementById("emergency_name_id").classList.remove("border-danger");
+  document.getElementById("emergency_phone_alert").style.display = "none";
+  document.getElementById("emergency_phone_id").classList.remove("border");
+  document.getElementById("emergency_phone_id").classList.remove("border-danger");
+  document.getElementById("member_alert").style.display = "none";
+  document.getElementById("handbook_signup_alert").style.display = "none";
+  document.getElementById("volunteeer_alert").style.display = "none";
+  document.getElementById("sign_alert").style.display = "none";
+  document.getElementById("sign_id").classList.remove("border");
+  document.getElementById("sign_id").classList.remove("border-danger");
+  document.getElementById("submit_alert").style.display = "none";
+}
+
 // Checks the form for completion and ensures consistency of data
 function check_completion(data) {
+
+  reset_alerts();
+
   var valid = true;
 
-  if(valid &&
-     document.getElementById('registered_yes').checked &&
-     (document.getElementById('email_id').value === "" || !validEmail(data.email))) {
+  // Perform child checks. The last three are optional, and are performed in a
+  // different way. The second boolean parameter indicates if the category
+  // is mandatory (true) or not (false)
+  if(!child_checks("child1", true)) {
+    valid = false;
+  }
 
-    document.getElementById('email_id').className += " border border-danger";
-    document.getElementById('email_alert').style.display = "block";
+  if(!child_checks("child2", false)) {
+    valid = false;
+  }
+
+  if(!child_checks("child3", false)) {
+    valid = false;
+  }
+
+  if(!child_empty("child3") && child_empty("child2")) {
+    document.getElementById('child2_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!child_checks("child4", false)) {
+    valid = false;
+  }
+
+  if(!child_empty("child4")) {
+
+    if(child_empty("child2")) {
+      document.getElementById('child2_alert').style.display = "block";
+      valid = false;
+    }
+
+    if(child_empty("child3")) {
+      document.getElementById('child3_alert').style.display = "block";
+      valid = false;
+    }
+  }
+
+  // Parent checks
+  if(!parent_checks("mother")) {
+
+    valid = false;
+  }
+
+  if(!parent_checks("father")) {
+
+    valid = false;
+  }
+
+  // Residence Verification
+  if(document.getElementById('address_id').value === "") {
+
+    document.getElementById('address_id').className += " border border-danger";
+    document.getElementById('address_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById('city_id').value === "") {
+
+    document.getElementById('city_id').className += " border border-danger";
+    document.getElementById('city_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById('zip_id').value === "" ||
+     !valid_zip(document.getElementById('zip_id').value)) {
+
+    document.getElementById('zip_id').className += " border border-danger";
+    document.getElementById('zip_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById('home_phone_id').value === "" ||
+     !valid_phone(document.getElementById('home_phone_id').value)) {
+
+    document.getElementById('home_phone_id').className += " border border-danger";
+    document.getElementById('home_phone_alert').style.display = "block";
+    valid = false;
+  }
+
+  // Important Information Verification
+  if(document.getElementById('emergency_name_id').value === "") {
+
+    document.getElementById('emergency_name_id').className += " border border-danger";
+    document.getElementById('emergency_name_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById('emergency_phone_id').value === "" ||
+    !valid_phone(document.getElementById('emergency_phone_id').value)) {
+
+    document.getElementById('emergency_phone_id').className += " border border-danger";
+    document.getElementById('emergency_phone_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById('member_yes_id').checked &&
+     !document.getElementById('member_no_id').checked) {
+
+    document.getElementById('member_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("parent_handbook_id").checked ||
+     !document.getElementById("signups_id").checked) {
+
+    document.getElementById('handbook_signup_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById('sign_id').value === "") {
+
+    document.getElementById('sign_id').className += " border border-danger";
+    document.getElementById('sign_alert').style.display = "block";
+    valid = false;
+  }
+
+  return valid;
+}
+
+function child_empty(field_name)
+{
+  if(document.getElementById(field_name + '_first_name_id').value === "" &&
+     document.getElementById(field_name + '_last_name_id').value === "" &&
+     !document.getElementById(field_name + '_gender_male').checked &&
+     !document.getElementById(field_name + '_gender_female').checked &&
+     document.getElementById(field_name + '_dob_id').value === "") {
+
+       return true;
+  }
+
+  return false;
+}
+
+function child_checks(field_name, mandatory)
+{
+  var valid = true;
+  // If all are empty, then we're good as this is optional category
+  if(!mandatory && child_empty(field_name)) {
+
+       return valid;
+  }
+
+  if(document.getElementById(field_name + '_first_name_id').value === "") {
+
+    document.getElementById(field_name + '_first_name_id').className += " border border-danger";
+    document.getElementById(field_name + '_first_name_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById(field_name + '_last_name_id').value === "") {
+
+    document.getElementById(field_name + '_last_name_id').className += " border border-danger";
+    document.getElementById(field_name + '_last_name_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById(field_name + '_gender_male').checked &&
+     !document.getElementById(field_name + '_gender_female').checked)  {
+
+    document.getElementById(field_name + '_gender_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById(field_name + '_dob_id').value === "") {
+    document.getElementById(field_name + '_dob_id').className += " border border-danger";
+
+    document.getElementById(field_name + '_dob_alert').style.display = "block";
+    valid = false;
+  }
+
+  return valid;
+}
+
+function parent_checks(field_name)
+{
+  var valid = true;
+  if(document.getElementById(field_name + '_first_name_id').value === "") {
+
+    document.getElementById(field_name + '_first_name_id').className += " border border-danger";
+    document.getElementById(field_name + '_first_name_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById(field_name + '_last_name_id').value === "") {
+
+    document.getElementById(field_name + '_last_name_id').className += " border border-danger";
+    document.getElementById(field_name + '_last_name_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById(field_name + '_phone_id').value === "" ||
+    !valid_phone(document.getElementById(field_name + '_phone_id').value)) {
+
+    document.getElementById(field_name + '_phone_id').className += " border border-danger";
+    document.getElementById(field_name + '_phone_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById(field_name + '_email_id').value === "" ||
+     !valid_email(document.getElementById(field_name + '_email_id').value)) {
+
+    document.getElementById(field_name + '_email_id').className += " border border-danger";
+    document.getElementById(field_name + '_email_alert').style.display = "block";
     valid = false;
   }
 
@@ -175,6 +471,7 @@ function handle_form_submit(event) {
 
   // If form isn't complete, don't proceed
   if(!check_completion(data)) {
+    document.getElementById('submit_alert').style.display = "block";
     return false;
   }
 
@@ -198,10 +495,11 @@ function handle_form_submit(event) {
       // Parse the response text and look for "result":"error"
       var result = JSON.parse(xhr.responseText);
       if(result['result'] === 'success') {
-        fill_form(result);
+        // Display the error page if error was returned
+        document.location.replace('http://www.mccgp.org/school-already-registered.html');
       } else {
         // Display the error page if error was returned
-        document.location.replace('http://www.mccgp.org/survey-already-submitted.html');
+        document.location.replace('http://www.mccgp.org/school-already-registered.html');
       }
     }
     return;
@@ -252,13 +550,17 @@ function check_registration(event) {
         // Success. We have data to display on the registration form
         fill_form(result);
 
-        // Hide all the entire check registration form.
+        // Hide the entire check registration form.
         document.getElementById("mccgp-school-registration-check").hidden = true;
 
-        // Display the registration form and information found alert
+        // Display the information found alert
         document.getElementById("info_found_alert_id").style.display = "block";
 
+        // Display the registration form
         document.getElementById('mccgp-school-registration').hidden = false;
+
+        // Enable the submit button
+        document.getElementById("submit-form").disabled = false;
       }
       else
       {
@@ -279,7 +581,7 @@ function check_registration(event) {
   // url encode form data for sending as post data
   var encoded = Object.keys(data).map(function(k)
   {
-      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
   }).join('&')
   xhr.send(encoded);
 }
@@ -385,6 +687,8 @@ document.getElementById("registered_yes").addEventListener("click", function() {
   document.getElementById("info_found_alert_id").style.display = "none";
   document.getElementById("info_not_found_alert_id").style.display = "none";
   document.getElementById("not_registered_id").style.display = "none";
+
+  reset_alerts();
 });
 
 // Not registered click
@@ -401,6 +705,8 @@ document.getElementById("registered_no").addEventListener("click", function() {
   document.getElementById("info_not_found_alert_id").style.display = "none";
 
   document.getElementById("not_registered_id").style.display = "block";
+
+  reset_alerts();
 });
 
 // sign up button click
@@ -442,42 +748,263 @@ document.getElementById("email_id").addEventListener("keyup", function() {
   }
 });
 
+// *************************************************************** //
+// Event listeners for keypresses and clicks. This resets the alerts and
+// enables form submission
 
-/*
-function display_form()
-{
-  // Setup elements on the page; reset them to their default statusText
-  document.getElementById("info_found_alert_id").style.display = "block";
-  document.getElementById("info_not_found_alert_id").style.display = "block";
-  document.getElementById("not_registered_id").style.display = "none";
-  document.getElementById("first_child_info_id").style.display = "block";
-  document.getElementById("second_child_info_id").style.display = "block";
-  document.getElementById("third_child_info_id").style.display = "block";
-  document.getElementById("fourth_child_info_id").style.display = "block";
-  document.getElementById("mother_info_id").style.display = "block";
-  document.getElementById("father_info_id").style.display = "block";
-  document.getElementById("residence_info_id").style.display = "block";
-  document.getElementById("important_info_id").style.display = "block";
-  document.getElementById("sign_and_date_id").style.display = "block";
-  document.getElementById("submit-form").hidden = false;
-}
+// Child1
+document.getElementById("child1_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("child1_first_name_id").classList.remove("border");
+  document.getElementById("child1_first_name_id").classList.remove("border-danger");
+  document.getElementById("child1_first_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child1_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("child1_last_name_id").classList.remove("border");
+  document.getElementById("child1_last_name_id").classList.remove("border-danger");
+  document.getElementById("child1_last_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child1_gender_male").addEventListener("click", function() {
+  document.getElementById("child1_gender_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child1_gender_female").addEventListener("click", function() {
+  document.getElementById("child1_gender_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child1_dob_id").addEventListener("keyup", function() {
+  document.getElementById("child1_dob_id").classList.remove("border");
+  document.getElementById("child1_dob_id").classList.remove("border-danger");
+  document.getElementById("child1_dob_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
 
-function hide_form()
-{
-  // Setup elements on the page; reset them to their default statusText
-  document.getElementById("info_found_alert_id").style.display = "none";
-  document.getElementById("info_not_found_alert_id").style.display = "none";
-  document.getElementById("not_registered_id").style.display = "none";
-  document.getElementById("first_child_info_id").style.display = "none";
-  document.getElementById("second_child_info_id").style.display = "none";
-  document.getElementById("third_child_info_id").style.display = "none";
-  document.getElementById("fourth_child_info_id").style.display = "none";
-  document.getElementById("mother_info_id").style.display = "none";
-  document.getElementById("father_info_id").style.display = "none";
-  document.getElementById("residence_info_id").style.display = "none";
-  document.getElementById("important_info_id").style.display = "none";
-  document.getElementById("sign_and_date_id").style.display = "none";
-  document.getElementById("submit-form").hidden = true;
-}
-*/
-// ============================================================== //
+// Child2
+document.getElementById("child2_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("child2_first_name_id").classList.remove("border");
+  document.getElementById("child2_first_name_id").classList.remove("border-danger");
+  document.getElementById("child2_first_name_alert").style.display = "none";
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("child2_last_name_id").classList.remove("border");
+  document.getElementById("child2_last_name_id").classList.remove("border-danger");
+  document.getElementById("child2_last_name_alert").style.display = "none";
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_gender_male").addEventListener("click", function() {
+  document.getElementById("child2_gender_alert").style.display = "none";
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_gender_female").addEventListener("click", function() {
+  document.getElementById("child2_gender_alert").style.display = "none";
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_dob_id").addEventListener("keyup", function() {
+  document.getElementById("child2_dob_id").classList.remove("border");
+  document.getElementById("child2_dob_id").classList.remove("border-danger");
+  document.getElementById("child2_dob_alert").style.display = "none";
+  document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Child3
+document.getElementById("child3_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("child3_first_name_id").classList.remove("border");
+  document.getElementById("child3_first_name_id").classList.remove("border-danger");
+  document.getElementById("child3_first_name_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child3_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("child3_last_name_id").classList.remove("border");
+  document.getElementById("child3_last_name_id").classList.remove("border-danger");
+  document.getElementById("child3_last_name_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child3_gender_male").addEventListener("click", function() {
+  document.getElementById("child3_gender_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child3_gender_female").addEventListener("click", function() {
+  document.getElementById("child3_gender_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child3_dob_id").addEventListener("keyup", function() {
+  document.getElementById("child3_dob_id").classList.remove("border");
+  document.getElementById("child3_dob_id").classList.remove("border-danger");
+  document.getElementById("child3_dob_alert").style.display = "none";
+  document.getElementById("child3_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Child4
+document.getElementById("child4_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("child4_first_name_id").classList.remove("border");
+  document.getElementById("child4_first_name_id").classList.remove("border-danger");
+  document.getElementById("child4_first_name_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("child4_last_name_id").classList.remove("border");
+  document.getElementById("child4_last_name_id").classList.remove("border-danger");
+  document.getElementById("child4_last_name_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_gender_male").addEventListener("click", function() {
+  document.getElementById("child4_gender_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_gender_female").addEventListener("click", function() {
+  document.getElementById("child4_gender_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_dob_id").addEventListener("keyup", function() {
+  document.getElementById("child4_dob_id").classList.remove("border");
+  document.getElementById("child4_dob_id").classList.remove("border-danger");
+  document.getElementById("child4_dob_alert").style.display = "none";
+  document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Mother
+document.getElementById("mother_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("mother_first_name_id").classList.remove("border");
+  document.getElementById("mother_first_name_id").classList.remove("border-danger");
+  document.getElementById("mother_first_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("mother_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("mother_last_name_id").classList.remove("border");
+  document.getElementById("mother_last_name_id").classList.remove("border-danger");
+  document.getElementById("mother_last_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("mother_phone_id").addEventListener("keyup", function() {
+  document.getElementById("mother_phone_id").classList.remove("border");
+  document.getElementById("mother_phone_id").classList.remove("border-danger");
+  document.getElementById("mother_phone_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("mother_email_id").addEventListener("keyup", function() {
+  document.getElementById("mother_email_id").classList.remove("border");
+  document.getElementById("mother_email_id").classList.remove("border-danger");
+  document.getElementById("mother_email_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Father
+document.getElementById("father_first_name_id").addEventListener("keyup", function() {
+  document.getElementById("father_first_name_id").classList.remove("border");
+  document.getElementById("father_first_name_id").classList.remove("border-danger");
+  document.getElementById("father_first_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("father_last_name_id").addEventListener("keyup", function() {
+  document.getElementById("father_last_name_id").classList.remove("border");
+  document.getElementById("father_last_name_id").classList.remove("border-danger");
+  document.getElementById("father_last_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("father_phone_id").addEventListener("keyup", function() {
+  document.getElementById("father_phone_id").classList.remove("border");
+  document.getElementById("father_phone_id").classList.remove("border-danger");
+  document.getElementById("father_phone_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("father_email_id").addEventListener("keyup", function() {
+  document.getElementById("father_email_id").classList.remove("border");
+  document.getElementById("father_email_id").classList.remove("border-danger");
+  document.getElementById("father_email_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Residence
+document.getElementById("address_id").addEventListener("keyup", function() {
+  document.getElementById("address_id").classList.remove("border");
+  document.getElementById("address_id").classList.remove("border-danger");
+  document.getElementById("address_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("city_id").addEventListener("keyup", function() {
+  document.getElementById("city_id").classList.remove("border");
+  document.getElementById("city_id").classList.remove("border-danger");
+  document.getElementById("city_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("zip_id").addEventListener("keyup", function() {
+  document.getElementById("zip_id").classList.remove("border");
+  document.getElementById("zip_id").classList.remove("border-danger");
+  document.getElementById("zip_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("home_phone_id").addEventListener("keyup", function() {
+  document.getElementById("home_phone_id").classList.remove("border");
+  document.getElementById("home_phone_id").classList.remove("border-danger");
+  document.getElementById("home_phone_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Important Information
+document.getElementById("emergency_name_id").addEventListener("keyup", function() {
+  document.getElementById("emergency_name_id").classList.remove("border");
+  document.getElementById("emergency_name_id").classList.remove("border-danger");
+  document.getElementById("emergency_name_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("emergency_phone_id").addEventListener("keyup", function() {
+  document.getElementById("emergency_phone_id").classList.remove("border");
+  document.getElementById("emergency_phone_id").classList.remove("border-danger");
+  document.getElementById("emergency_phone_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("member_yes_id").addEventListener("click", function() {
+  document.getElementById("member_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("member_no_id").addEventListener("click", function() {
+  document.getElementById("member_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_handbook_id").addEventListener("click", function() {
+  document.getElementById("handbook_signup_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("signups_id").addEventListener("click", function() {
+  document.getElementById("handbook_signup_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteeer_arabic_id").addEventListener("click", function() {
+  document.getElementById("volunteeer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteeer_islam_id").addEventListener("click", function() {
+  document.getElementById("volunteeer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteeer_sub_id").addEventListener("click", function() {
+  document.getElementById("volunteeer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Signature
+document.getElementById("sign_id").addEventListener("keyup", function() {
+  document.getElementById("sign_id").classList.remove("border");
+  document.getElementById("sign_id").classList.remove("border-danger");
+  document.getElementById("sign_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// *************************************************************** //

@@ -24,7 +24,7 @@
       </div>
 
       <!-- Form to check existing registration information -->
-      <form id="mccgp-school-registration-check" method="POST" action="https://script.google.com/macros/s/AKfycbye7RSjKFHJhhi9UeLNTRJjveausZK21ji-3_WYpA/exec">
+      <form id="mccgp-school-registration-check" method="POST" action="https://script.google.com/macros/s/AKfycbwDhosMi4LUVYOEGqcnMETmTW9X1SPdS-Z4E_NRouO5SDz6QkW9/exec">
         <!-- Registered? -->
         <div class="form-group">
           <h5 class="">Have you registered with us before?</h5>
@@ -49,7 +49,7 @@
             Please enter a valid email address
           </div>
           <div class="controls">
-            <input class="w-50" type="email" id="email_id" name="email" placeholder="Please enter your email that you used to register">
+            <input class="w-75" type="email" id="email_id" name="email" placeholder="Please enter your email that you used to register last year ...">
           </div><br>
         </div>
         <div class="form-group">
@@ -97,7 +97,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child1_first_name_id" name="child1_first_name" >
+                <input class="w-50" type="text" id="child1_first_name_id" name="Child1_First_Name" >
               </div>
             </div>
             <!-- Child1 Last Name -->
@@ -107,22 +107,25 @@
               Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child1_last_name_id" name="child1_last_name" >
+                <input class="w-50" type="text" id="child1_last_name_id" name="Child1_Last_Name" >
               </div>
             </div>
             <!-- Child1 Gender -->
             <div id="child1_gender_section" class="form-group" style="display:block">
               <h6 class="">Gender</h6>
+              <div id="child1_gender_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please select gender
+              </div>
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child1_gender" id="child1_gender_male" value="Male">
+                    <input class="form-check-input" type="radio" name="Child1_Gender" id="child1_gender_male" value="Male">
                     Male
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child1_gender" id="child1_gender_female" value="Female">
+                    <input class="form-check-input" type="radio" name="Child1_Gender" id="child1_gender_female" value="Female">
                     Female
                   </label>
                 </div>
@@ -135,13 +138,16 @@
                 Please enter the date of birth in MM/DD/YYYY format
               </div>
               <div class="controls">
-                  <input class="w-50" type="date" id="child1_dob_id" name="child1_dob" placeholder="MM/DD/YYYY">
+                  <input class="w-50" type="date" id="child1_dob_id" name="Child1_DOB" placeholder="MM/DD/YYYY">
               </div>
             </div>
           </div>
         </div>
 
         <div id="second_child_info_id" class="card border-dark mb-3" style="display:block">
+          <div id="child2_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            This section cannot be empty
+          </div>
           <div class="card-header">
             Second Child (if applicable)
           </div>
@@ -153,7 +159,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child2_first_name_id" name="child2_first_name" >
+                <input class="w-50" type="text" id="child2_first_name_id" name="Child2_First_Name" >
               </div>
             </div>
             <!-- Child2 Last Name -->
@@ -163,22 +169,25 @@
                 Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child2_last_name_id" name="child2_last_name" >
+                <input class="w-50" type="text" id="child2_last_name_id" name="Child2_Last_Name" >
               </div>
             </div>
             <!-- Child2 Gender -->
             <div id="child2_gender_section" class="form-group" style="display:block">
               <h6 class="">Gender</h6>
+              <div id="child2_gender_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please select gender
+              </div>
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_male" value="Male">
+                    <input class="form-check-input" type="radio" name="Child2_Gender" id="child2_gender_male" value="Male">
                     Male
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child2_gender" id="child2_gender_female" value="Female">
+                    <input class="form-check-input" type="radio" name="Child2_Gender" id="child2_gender_female" value="Female">
                     Female
                   </label>
                 </div>
@@ -191,13 +200,16 @@
                 Please enter the date of birth in MM/DD/YYYY format
               </div>
               <div class="controls">
-                  <input class="w-50" type="date" id="child2_dob_id" name="child2_dob" placeholder="MM/DD/YYYY">
+                  <input class="w-50" type="date" id="child2_dob_id" name="Child2_DOB" placeholder="MM/DD/YYYY">
               </div>
             </div>
           </div>
         </div>
 
         <div id="third_child_info_id" class="card border-dark mb-3" style="display:block">
+          <div id="child3_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            This section cannot be empty
+          </div>
           <div class="card-header">
             Third Child (if applicable)
           </div>
@@ -209,7 +221,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child3_first_name_id" name="child3_first_name" >
+                <input class="w-50" type="text" id="child3_first_name_id" name="Child3_First_Name" >
               </div>
             </div>
             <!-- Child3 Last Name -->
@@ -219,22 +231,25 @@
                 Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child3_last_name_id" name="child3_last_name" >
+                <input class="w-50" type="text" id="child3_last_name_id" name="Child3_Last_Name" >
               </div>
             </div>
             <!-- Child3 Gender -->
             <div id="child3_gender_section" class="form-group" style="display:block">
               <h6 class="">Gender</h6>
+              <div id="child3_gender_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please select gender
+              </div>
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child3_gender" id="child3_gender_male" value="Male">
+                    <input class="form-check-input" type="radio" name="Child3_Gender" id="child3_gender_male" value="Male">
                     Male
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child3_gender" id="child3_gender_female" value="Female">
+                    <input class="form-check-input" type="radio" name="Child3_Gender" id="child3_gender_female" value="Female">
                     Female
                   </label>
                 </div>
@@ -247,13 +262,16 @@
                 Please enter the date of birth in MM/DD/YYYY format
               </div>
               <div class="controls">
-                  <input class="w-50" type="date" id="child3_dob_id" name="child3_dob" placeholder="MM/DD/YYYY">
+                  <input class="w-50" type="date" id="child3_dob_id" name="Child3_DOB" placeholder="MM/DD/YYYY">
               </div>
             </div>
           </div>
         </div>
 
         <div id="fourth_child_info_id" class="card border-dark mb-3" style="display:block">
+          <div id="child4_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+            This section cannot be empty
+          </div>
           <div class="card-header">
             Fourth Child (if applicable)
           </div>
@@ -265,7 +283,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child4_first_name_id" name="child4_first_name" >
+                <input class="w-50" type="text" id="child4_first_name_id" name="Child4_First_Name" >
               </div>
             </div>
             <!-- Child4 Last Name -->
@@ -275,22 +293,25 @@
                 Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="child4_last_name_id" name="child2_last_name" >
+                <input class="w-50" type="text" id="child4_last_name_id" name="Child4_Last_Name" >
               </div>
             </div>
             <!-- Child4 Gender -->
             <div id="child4_gender_section" class="form-group" style="display:block">
               <h6 class="">Gender</h6>
+              <div id="child4_gender_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please select gender
+              </div>
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child4_gender" id="child4_gender_male" value="Male">
+                    <input class="form-check-input" type="radio" name="Child4_Gender" id="child4_gender_male" value="Male">
                     Male
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="child4_gender" id="child4_gender_female" value="Female">
+                    <input class="form-check-input" type="radio" name="Child4_Gender" id="child4_gender_female" value="Female">
                     Female
                   </label>
                 </div>
@@ -303,7 +324,7 @@
                 Please enter the date of birth in MM/DD/YYYY format
               </div>
               <div class="controls">
-                  <input class="w-50" type="date" id="child4_dob_id" name="child4_dob" placeholder="MM/DD/YYYY">
+                  <input class="w-50" type="date" id="child4_dob_id" name="Child4_DOB" placeholder="MM/DD/YYYY">
               </div>
             </div>
           </div>
@@ -321,7 +342,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="mother_first_name_id" name="mother_first_name" >
+                <input class="w-50" type="text" id="mother_first_name_id" name="Mother_First_Name" >
               </div>
             </div>
             <!-- Mother Last Name -->
@@ -331,7 +352,7 @@
                 Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="mother_last_name_id" name="mother_last_name" >
+                <input class="w-50" type="text" id="mother_last_name_id" name="Mother_Last_Name" >
               </div>
             </div>
             <!-- Mother Phone -->
@@ -341,7 +362,7 @@
                 Please enter the cell phone in XXX-XXX-XXXX
               </div>
               <div class="controls">
-                  <input class="w-50" type="text" id="mother_phone_id" name="mother_phone" placeholder="XXX-XXX-XXXX">
+                  <input class="w-50" type="text" id="mother_phone_id" name="Mother_Phone" placeholder="XXX-XXX-XXXX">
               </div>
             </div>
             <!-- Mother Email -->
@@ -351,7 +372,7 @@
                 Please enter a valid email address
               </div>
               <div class="controls">
-                  <input class="w-50" type="email" id="mother_email_id" name="mother_email">
+                  <input class="w-50" type="email" id="mother_email_id" name="Mother_Email">
               </div>
             </div>
           </div>
@@ -370,7 +391,7 @@
                 Please enter first name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="father_first_name_id" name="father_first_name" >
+                <input class="w-50" type="text" id="father_first_name_id" name="Father_First_Name" >
               </div>
             </div>
             <!-- Father Last Name -->
@@ -380,7 +401,7 @@
                 Please enter last name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="father_last_name_id" name="father_last_name" >
+                <input class="w-50" type="text" id="father_last_name_id" name="Father_Last_Name" >
               </div>
             </div>
             <!-- Father Phone -->
@@ -390,7 +411,7 @@
                 Please enter the cell phone in XXX-XXX-XXXX
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="father_phone_id" name="father_phone" placeholder="XXX-XXX-XXXX">
+                <input class="w-50" type="text" id="father_phone_id" name="Father_Phone" placeholder="XXX-XXX-XXXX">
               </div>
             </div>
             <!-- Father Email -->
@@ -400,7 +421,7 @@
                 Please enter a valid email address
               </div>
               <div class="controls">
-                  <input class="w-50" type="email" id="father_email_id" name="father_email">
+                  <input class="w-50" type="email" id="father_email_id" name="Father_Email">
               </div>
             </div>
           </div>
@@ -419,7 +440,7 @@
                 Please enter house/building number, street name, optional apartment number
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="address_id" name="address" >
+                <input class="w-50" type="text" id="address_id" name="Address" >
               </div>
             </div>
             <!-- City -->
@@ -429,7 +450,7 @@
                 Please enter city
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="city_id" name="city" >
+                <input class="w-50" type="text" id="city_id" name="City" >
               </div>
             </div>
             <!-- State -->
@@ -444,7 +465,7 @@
                 Please enter zip code
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="zip_id" name="zip" onkeypress="return is_number(event)">
+                <input class="w-50" type="text" id="zip_id" name="Zip" onkeypress="return is_number(event)">
               </div>
             </div>
             <!-- Home Phone -->
@@ -454,7 +475,7 @@
                 Please enter the home phone in XXX-XXX-XXXX
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="home_phone_id" name="home_phone" placeholder="XXX-XXX-XXXX">
+                <input class="w-50" type="text" id="home_phone_id" name="Home_Phone" placeholder="XXX-XXX-XXXX">
               </div>
             </div>
           </div>
@@ -473,7 +494,7 @@
                 Please enter Emergency Contact Name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="emergency_name_id" name="emergency_name_address" >
+                <input class="w-50" type="text" id="emergency_name_id" name="Emergency_Contact" >
               </div>
             </div>
             <!-- Emergency Contact Phone -->
@@ -483,42 +504,45 @@
                 Please enter Emergency Contact Phone in XXX-XXX-XXXX format
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="emergency_phone_id" name="emergency_phone" placeholder="XXX-XXX-XXXX">
+                <input class="w-50" type="text" id="emergency_phone_id" name="Emergency_Phone" placeholder="XXX-XXX-XXXX">
               </div>
             </div><br>
             <!-- Mameber? -->
             <div id="member_section" class="form-group" style="display:block">
               <h6 class="">Are you a current member of MCCGP?</h6>
+              <div id="member_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please select your membership status
+              </div>
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="member" id="member_yes_id" value="Yes">
+                    <input class="form-check-input" type="radio" name="Member" id="member_yes_id" value="Yes">
                     Yes
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="member" id="member_no_id" value="No">
+                    <input class="form-check-input" type="radio" name="Member" id="member_no_id" value="No">
                     No
                   </label>
                 </div>
               </div>
             </div><br>
             <!-- Parent handbook and signups -->
-            <div id="handbook_section" class="form-group" style="display:block">
+            <div id="handbook_signup_section" class="form-group" style="display:block">
               <h6 class="">By checking the following boxes, you agree to these statements</h6>
-              <div id="handbook_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+              <div id="handbook_signup_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
                 Please check both boxes and consent to agree before submitting your form.
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="parent_handbook" id="parent_handbook_id" value="Agree to reading Parent Hanbook">
+                  <input class="form-check-input" type="checkbox" name="Handbook_Signups" id="parent_handbook_id" value="Agree to reading Parent Hanbook">
                   I have read and agree to terms and conditions of the Parent Handbook
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="signups" id="signups_id" value="Agree to signup for specified tasks">
+                  <input class="form-check-input" type="checkbox" name="Handbook_Signups" id="signups_id" value="Agree to signup for specified tasks">
                   I agree to sign up for lunches (prep, serve & cleanup), volunteer to proctor during recess and bake sale at least once per school year
                 </label>
               </div>
@@ -531,19 +555,19 @@
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="volunteeer_arabic" id="volunteeer_arabic_id" value="Arabic Volunteer">
+                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_arabic_id" value="Arabic Volunteer">
                   Arabic
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="volunteeer_islam" id="volunteeer_islam_id" value="Islamic Studies Volunteer">
+                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_islam_id" value="Islamic Studies Volunteer">
                   Islamic Studies
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="volunteeer_sub" id="volunteeer_sub_id" value="Substitute Volunteer">
+                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_sub_id" value="Substitute Volunteer">
                   Substitute
                 </label>
               </div>
@@ -565,7 +589,7 @@
                 Please sign (type) your full name
               </div>
               <div class="controls">
-                <input class="w-50" type="text" id="sign_id" name="sign" >
+                <input class="w-50" type="text" id="sign_id" name="Signature" >
               </div>
             </div>
             <!-- Date -->
