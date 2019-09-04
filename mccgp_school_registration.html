@@ -24,7 +24,7 @@
       </div>
 
       <!-- Form to check existing registration information -->
-      <form id="mccgp-school-registration-check" method="POST" action="https://script.google.com/macros/s/AKfycbwDhosMi4LUVYOEGqcnMETmTW9X1SPdS-Z4E_NRouO5SDz6QkW9/exec">
+      <form id="mccgp-school-registration-check" method="POST" action="https://script.google.com/macros/s/AKfycby5966nv0TVPr7kvPD89XrlVVNIkfENiWA1nBiSqm9KnVWYh5Jc/exec">
         <!-- Registered? -->
         <div class="form-group">
           <h5 class="">Have you registered with us before?</h5>
@@ -595,7 +595,7 @@
                 <input class="w-50" type="text" id="emergency_phone_id" name="Emergency_Phone" placeholder="XXX-XXX-XXXX">
               </div>
             </div><br>
-            <!-- Mameber? -->
+            <!-- Member? -->
             <div id="member_section" class="form-group" style="display:block">
               <h6 class="">Are you a current member of MCCGP?</h6>
               <div id="member_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
@@ -616,47 +616,217 @@
                 </div>
               </div>
             </div><br>
-            <!-- Parent handbook and signups -->
-            <div id="handbook_signup_section" class="form-group" style="display:block">
-              <h6 class="">By checking the following boxes, you agree to these statements</h6>
-              <div id="handbook_signup_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
-                Please check both boxes and consent to agree before submitting your form.
+            <div id="tuition_section" class="form-group" style="display:block">
+              <h6 class="">Are you able to pay full tuition?</h6>
+              <p class="text-danger"><small>Tuition must be paid in full to the Office at MCCGP at the beginning of the school year.
+                Failure to do so will suspend your child(ren) from attending until payment is made. If full
+                tuition cannot be paid, then a discount may be applied on a case-by-case basis. You must apply
+                to the MCCGP Office to discuss this matter in detail, and complete the required documentation.
+                Payments can be made either by check, cash, or credit/debit card. Please be sure to take a
+                receipt as proof of payment, if you are paying by cash. </small></p>
+              <div id="tuition_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please choose one option
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="Full_Tuition" id="tuition_yes_id" value="Yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="Full_Tuition" id="tuition_no_id" value="No">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div><br>
+            <!-- Support Activities  -->
+            <div id="activities_section" class="form-group" style="display:block">
+              <h6 class="">I agree to support the following activities at least once per school year:</h6>
+              <div id="activities_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please check all .. Parents must agree to all activities at least once per school year
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="Handbook_Signups" id="parent_handbook_id" value="Agree to reading Parent Hanbook">
-                  I have read and agree to terms and conditions of the Parent Handbook
+                  <input class="form-check-input" type="checkbox" name="Signup_Lunch" id="activities_lunch_id" value="Yes">
+                  Sunday School Lunch (prep, server, cleanup)
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="Handbook_Signups" id="signups_id" value="Agree to signup for specified tasks">
-                  I agree to sign up for lunches (prep, serve & cleanup), volunteer to proctor during recess and bake sale at least once per school year
+                  <input class="form-check-input" type="checkbox" name="Signup_Bake_Sale" id="activities_bake_sale_id" value="Yes">
+                  Bake Sale (prep, serve, cleanup)
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Signup_Recess" id="activities_recess_id" value="Yes">
+                  Recess Duty (monitor students during lunch break wearing a visible vest)
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Signup_Cleanup" id="activities_after_school_cleanup_id" value="Yes">
+                  After School Cleanup (cleanup tables, dispose off garbage, reset social hall furniture, etc)
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Signup_Calendar" id="activities_calendar_id" value="Yes">
+                  I agree to signup on the calendar for these activities
                 </label>
               </div>
             </div><br>
             <!-- Volunteer  -->
             <div id="volunteer_section" class="form-group" style="display:block">
-              <h6 class="">Would you like to volunteer as a teacher or substitute at Sunday School? (Check all that apply)</h6>
-              <div id="volunteeer_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
-                Please check all that apply
+              <h6 class="">I would like to volunteer as: (Check all that apply)</h6>
+              <div id="volunteer_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please check all that apply (and provide age limits - for example, "6-8 years", "Any", "All")
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_arabic_id" value="Arabic Volunteer">
-                  Arabic
+                  <input class="form-check-input" type="checkbox" name="Quran_Assistant" id="volunteer_quran_assistant_id" value="Yes">
+                  Quran Assistant Teacher each week
+                </label>
+                <div id="volunteer_quran_range_section" style="display:none">
+                  <input class="w-10" type="text" id="volunteer_quran_age_range_id" name="QuranAgeRange" placeholder="Specify age range...">
+                </div>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Islamic_Studies_Assistant" id="volunteer_islam_assistant_id" value="Yes">
+                  Islamic Studies Assistant Teacher each week
+                </label>
+                <div id="volunteer_islam_range_section" style="display:none">
+                  <input class="w-10" type="text" id="volunteer_islam_age_range_id" name="IslamAgeRange" placeholder="Specify age range...">
+                </div>
+              </div>
+            </div><br>
+            <!-- Parent Support  -->
+            <div id="parent_support_agreement_section" class="form-group" style="display:block">
+              <div id="parent_support_agreement_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                You must check this to proceed
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Parent_Agrees_To_Substitute" id="parent_support_agreement_id" value="Yes">
+                  <h6>As a parent, I agree to support my child as a substitute teacher as needed, when requested by the head teacher</h6>
+                </label>
+              </div>
+            </div><br>
+            <div id="parent_pledge_section" class="form-group" style="display:block">
+              <h6 class="">I understand my role as a parent is to be proactive and engaged with my child to become a strong Muslim. I pledge to:</h6>
+              <div id="parent_pledge_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                You must check all to proceed
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Parent_Pledge_Instill_Islamic_Values" id="parent_pledge_instill_islamic_values_id" value="Yes">
+                  Instill Islamic values at home and model the values and behavior expected of my child at MCCGP
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_islam_id" value="Islamic Studies Volunteer">
-                  Islamic Studies
+                  <input class="form-check-input" type="checkbox" name="Parent_Pledge_Regular_Attendance" id="parent_pledge_regular_attendance_id" value="Yes">
+                  Encourage regular attendance
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="Volunteeer" id="volunteeer_sub_id" value="Substitute Volunteer">
-                  Substitute
+                  <input class="form-check-input" type="checkbox" name="Parent_Pledge_Reinforce_Learning" id="parent_pledge_reinforce_learning_id" value="Yes">
+                  Reinforce at home through review of homework, lessons learned, encouraging salat
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Parent_Pledge_Active_Participation" id="parent_pledge_active_participation_id" value="Yes">
+                  Participate in and support Sunday School activities (not just drop off)
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Parent_Pledge_Regular_Communication" id="parent_pledge_regular_communication_id" value="Yes">
+                  Communicate with the teacher, staff, and other families to encourage bonding and sharing ideas, questions, concerns
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Important Information -->
+        <div id="important_info_id" class="card bg-light border-primary mb-3" >
+          <div class="card-header bg-primary text-white">
+            Release and Waiver Statements
+          </div>
+          <div class="card-body">
+            <div id="release_mccgp_liability_section" class="form-group" style="display:block">
+              <div id="release_mccgp_liability_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please check this to proceed
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Release_MCCGP_Liability" id="release_mccgp_liability_id" value="Yes">
+                  <h6>I am leaving my child/children with the Muslim Community Center of Greater Pittsburgh (MCCGP) Sunday School Program. I forever
+                    release and discharge the MCCGP, all their employees, all their agents, all their members and managers, the staff and
+                    volunteers of this program of any liability that may occur during my child's visit/stay.</h6>
+                </label>
+              </div>
+            </div><br>
+            <div id="release_mccgp_other_section" class="form-group" style="display:block">
+              <h6 class="">I AGREE in consideration for my child's participation in all MCCGP services to the following:</h6>
+              <div id="release_mccgp_other_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                You must check all to proceed
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Release_MCCGP_Money_Damages" id="release_mccgp_money_damages_id" value="Yes">
+                  I AGREE to release the MCCGP from all claims for money damages
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Release_MCCGP_All_Damages" id="release_mccgp_all_damages_id" value="Yes">
+                  I AGREE to pay any losses, damages, or costs incurred and to hold the MCCGP harmless with respect to claims for harm to my child
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Release_MCCGP_Other" id="release_mccgp_other_id" value="Yes">
+                  I am a parent/guardian of a minor and I consent to the child's participation and AGREE to all the provisions and AGREE to assume all of the obligations of
+                  this release on the Child's behalf, I AGREE that the MCCGP as used above (or anywhere on the form) includes all their officials, officers, directors, employees,
+                  agents, personnel, volunteers, staff and affiliated organizations, I further AGREE to be bound by all applicable MCCGP rules, terms and provisions of the organization
+                </label>
+              </div>
+            </div><br>
+            <!-- Field Trip Permission -->
+            <div id="field_trip_permission_section" class="form-group" style="display:block">
+              <div id="field_trip_permission_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please check this to proceed
+              </div>
+              <h6>Field Trip Permssion Statement</h6>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Field_Trip_Permission" id="field_trip_permission_id" value="Yes">
+                   I have given permission to the MCCGP Sunday School Program to take my child(ren) to all Sunday School field trips. I am aware that sending my child(ren) on field trip
+                   days means that he/she/they will be going with the group to the field trip. I am also aware that if I do not want my child(ren) to go to any of the field trips, I will
+                   inform the School and keep him/her/them home.
+                </label>
+              </div>
+            </div><br>
+            <!-- Photo Release Statement -->
+            <div id="release_mccgp_photo_section" class="form-group" style="display:block">
+              <div id="release_mccgp_photo_alert" class="alert alert-warning alert-dismissible fade show" style="display:none" role="alert">
+                Please check this to proceed
+              </div>
+              <h6>Photo Release Statement</h6>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="Release_MCCGP_Photo_Video" id="release_mccgp_photo_id" value="Yes">
+                    I am aware that the MCCGP will be taking pictures/videos of children during the Sunday School Program. The MCCGP will be using these photos to promote awareness of the
+                    program in the presentations, flyers,  brochures, and the MCCGP websites and social media. Please indicate below whether you give permission to MCCGP to photograph/videotape
+                    you child(ren)
                 </label>
               </div>
             </div>
@@ -670,6 +840,9 @@
           </div>
           <div class="card-body">
             <h5 class="card-title"></h5>
+            <p>I verify as Allah as my witness that the above information is accurate and complete. I also have read and understood the release and waiver statement,
+              field trips permission statement, and the  photo release statement. By typing in your name in the below field you E-Sign your Signature to all of the above
+              information</p>
             <!-- Signature -->
             <div id="sign_section" class="form-group" style="display:block">
               <h6 class="" for="Sign">Signature (type your full name)</h6>

@@ -163,8 +163,15 @@ function reset_alerts() {
   document.getElementById("emergency_phone_id").classList.remove("border");
   document.getElementById("emergency_phone_id").classList.remove("border-danger");
   document.getElementById("member_alert").style.display = "none";
-  document.getElementById("handbook_signup_alert").style.display = "none";
-  document.getElementById("volunteeer_alert").style.display = "none";
+  document.getElementById("tuition_alert").style.display = "none";
+  document.getElementById("activities_alert").style.display = "none";
+  document.getElementById("volunteer_alert").style.display = "none";
+  document.getElementById("parent_support_agreement_alert").style.display = "none";
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById("release_mccgp_liability_alert").style.display = "none";
+  document.getElementById("release_mccgp_other_alert").style.display = "none";
+  document.getElementById("field_trip_permission_alert").style.display = "none";
+  document.getElementById("release_mccgp_photo_alert").style.display = "none";
   document.getElementById("sign_alert").style.display = "none";
   document.getElementById("sign_id").classList.remove("border");
   document.getElementById("sign_id").classList.remove("border-danger");
@@ -280,10 +287,75 @@ function check_completion(data) {
     valid = false;
   }
 
-  if(!document.getElementById("parent_handbook_id").checked ||
-     !document.getElementById("signups_id").checked) {
+  if(!document.getElementById("tuition_yes_id").checked &&
+     !document.getElementById("tuition_no_id").checked) {
 
-    document.getElementById('handbook_signup_alert').style.display = "block";
+    document.getElementById('tuition_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("activities_lunch_id").checked ||
+     !document.getElementById("activities_bake_sale_id").checked ||
+     !document.getElementById("activities_recess_id").checked ||
+     !document.getElementById("activities_after_school_cleanup_id").checked) {
+
+    document.getElementById('activities_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById("volunteer_quran_assistant_id").checked &&
+     document.getElementById("volunteer_quran_age_range_id").value === "") {
+
+    document.getElementById('volunteer_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(document.getElementById("volunteer_islam_assistant_id").checked &&
+     document.getElementById("volunteer_islam_age_range_id").value === "") {
+
+    document.getElementById('volunteer_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("parent_support_agreement_id").checked ) {
+
+    document.getElementById('parent_support_agreement_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("parent_pledge_instill_islamic_values_id").checked ||
+     !document.getElementById("parent_pledge_regular_attendance_id").checked ||
+     !document.getElementById("parent_pledge_reinforce_learning_id").checked ||
+     !document.getElementById("parent_pledge_active_participation_id").checked ||
+     !document.getElementById("parent_pledge_regular_communication_id").checked ) {
+
+    document.getElementById('parent_pledge_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("release_mccgp_liability_id").checked) {
+
+    document.getElementById('release_mccgp_liability_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("release_mccgp_money_damages_id").checked ||
+     !document.getElementById("release_mccgp_all_damages_id").checked ||
+     !document.getElementById("release_mccgp_other_id").checked) {
+
+    document.getElementById('release_mccgp_other_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("field_trip_permission_id").checked) {
+
+    document.getElementById('field_trip_permission_alert').style.display = "block";
+    valid = false;
+  }
+
+  if(!document.getElementById("release_mccgp_photo_id").checked) {
+
+    document.getElementById('release_mccgp_photo_alert').style.display = "block";
     valid = false;
   }
 
@@ -299,11 +371,13 @@ function check_completion(data) {
 
 function child_empty(field_name)
 {
+  var sel = document.getElementById(field_name + '_prev_grade_id');
   if(document.getElementById(field_name + '_first_name_id').value === "" &&
      document.getElementById(field_name + '_last_name_id').value === "" &&
      !document.getElementById(field_name + '_gender_male').checked &&
      !document.getElementById(field_name + '_gender_female').checked &&
-     document.getElementById(field_name + '_dob_id').value === "") {
+     document.getElementById(field_name + '_dob_id').value === "" &&
+     sel.options[sel.selectedIndex].text === "") {
 
        return true;
   }
@@ -345,6 +419,12 @@ function child_checks(field_name, mandatory)
     document.getElementById(field_name + '_dob_id').className += " border border-danger";
 
     document.getElementById(field_name + '_dob_alert').style.display = "block";
+    valid = false;
+  }
+
+  sel = document.getElementById(field_name + '_prev_grade_id');
+  if(sel.options[sel.selectedIndex].text === "") {
+    document.getElementById(field_name + '_prev_grade_alert').style.display = "block";
     valid = false;
   }
 
@@ -395,71 +475,71 @@ function fill_form(result)
 
   document.getElementById("info_found_alert_id").style.display = "block";
 
-  document.getElementById("child1_first_name_id").value = result["Child1 First Name"];
-  document.getElementById("child1_last_name_id").value = result["Child1 Last Name"];
-  if(result["Child1 Gender"] === "Male")
+  document.getElementById("child1_first_name_id").value = result["Child1_First_Name"];
+  document.getElementById("child1_last_name_id").value = result["Child1_Last_Name"];
+  if(result["Child1_Gender"] === "Male")
   {
     document.getElementById("child1_gender_male").checked = true;
   }
-  else if(result["Child1 Gender"] === "Female")
+  else if(result["Child1_Gender"] === "Female")
   {
     document.getElementById("child1_gender_female").checked = true;
   }
-  document.getElementById("child1_dob_id").value = result["Child1 Date of Birth"];
+  document.getElementById("child1_dob_id").value = result["Child1_DOB"];
 
-  document.getElementById("child2_first_name_id").value = result["Child2 First Name"];
-  document.getElementById("child2_last_name_id").value = result["Child2 Last Name"];
-  if(result["Child2 Gender"] === "Male")
+  document.getElementById("child2_first_name_id").value = result["Child2_First_Name"];
+  document.getElementById("child2_last_name_id").value = result["Child2_Last_Name"];
+  if(result["Child2_Gender"] === "Male")
   {
     document.getElementById("child2_gender_male").checked = true;
   }
-  else if(result["Child2 Gender"] === "Female")
+  else if(result["Child2_Gender"] === "Female")
   {
     document.getElementById("child2_gender_female").checked = true;
   }
-  document.getElementById("child2_dob_id").value = result["Child2 Date of Birth"];
+  document.getElementById("child2_dob_id").value = result["Child2_DOB"];
 
-  document.getElementById("child3_first_name_id").value = result["Child3 First Name"];
-  document.getElementById("child3_last_name_id").value = result["Child3 Last Name"];
-  if(result["Child3 Gender"] === "Male")
+  document.getElementById("child3_first_name_id").value = result["Child3_First_Name"];
+  document.getElementById("child3_last_name_id").value = result["Child3_Last_Name"];
+  if(result["Child3_Gender"] === "Male")
   {
     document.getElementById("child3_gender_male").checked = true;
   }
-  else if(result["Child3 Gender"] === "Female")
+  else if(result["Child3_Gender"] === "Female")
   {
     document.getElementById("child3_gender_female").checked = true;
   }
-  document.getElementById("child3_dob_id").value = result["Child3 Date of Birth"];
+  document.getElementById("child3_dob_id").value = result["Child3_DOB"];
 
-  document.getElementById("child4_first_name_id").value = result["Child4 First Name"];
-  document.getElementById("child4_last_name_id").value = result["Child4 Last Name"];
-  if(result["Child4 Gender"] === "Male")
+  document.getElementById("child4_first_name_id").value = result["Child4_First_Name"];
+  document.getElementById("child4_last_name_id").value = result["Child4_Last_Name"];
+  if(result["Child4_Gender"] === "Male")
   {
     document.getElementById("child4_gender_male").checked = true;
   }
-  else if(result["Child4 Gender"] === "Female")
+  else if(result["Child4_Gender"] === "Female")
   {
     document.getElementById("child4_gender_female").checked = true;
   }
-  document.getElementById("child4_dob_id").value = result["Child4 Date of Birth"];
+  document.getElementById("child4_dob_id").value = result["Child4_DOB"];
 
-  document.getElementById("mother_first_name_id").value = result["Parent First Name"];
-  document.getElementById("mother_last_name_id").value = result["Parent Last Name"];
-  document.getElementById("mother_phone_id").value = result["Cell Phone Number"]
-  document.getElementById("mother_email_id").value = result["Email"];
+  document.getElementById("mother_first_name_id").value = result["Mother_First_Name"];
+  document.getElementById("mother_last_name_id").value = result["Mother_Last_Name"];
+  document.getElementById("mother_phone_id").value = result["Mother_Phone"];
+  document.getElementById("mother_email_id").value = result["Mother_Email"];
 
-  document.getElementById("father_first_name_id").value = "";
-  document.getElementById("father_last_name_id").value = "";
-  document.getElementById("father_phone_id").value = "";
-  document.getElementById("father_email_id").value = "";
+  document.getElementById("father_first_name_id").value = result["Father_First_Name"];
+  document.getElementById("father_last_name_id").value = result["Father_Last_Name"];
+  document.getElementById("father_phone_id").value = result["Father_Phone"]
+  document.getElementById("father_email_id").value = result["Father_Email"];
 
   document.getElementById("address_id").value = result["Address"];
   document.getElementById("city_id").value = result["City"];
   document.getElementById("zip_id").value = result["Zip"];
-  document.getElementById("home_phone_id").value = result["Home Phone Number"];
+  document.getElementById("home_phone_id").value = result["Home_Phone"];
 
-  document.getElementById("emergency_name_id").value = result["Emergency Contact"];
-  document.getElementById("emergency_phone_id").value = result["Emergency Contact Phone"];
+  document.getElementById("emergency_name_id").value = result["Emergency_Contact"];
+  document.getElementById("emergency_phone_id").value = result["Emergency_Phone"];
 }
 
 // Handles form submit withtout any jquery. This is the main handler called
@@ -594,24 +674,28 @@ function reset_fields()
   document.getElementById("child1_gender_male").checked = false;
   document.getElementById("child1_gender_female").checked = false;
   document.getElementById("child1_dob_id").value = "";
+  document.getElementById("child1_prev_grade_id").selectedIndex = 0;
 
   document.getElementById("child2_first_name_id").value = "";
   document.getElementById("child2_last_name_id").value = "";
   document.getElementById("child2_gender_male").checked = false;
   document.getElementById("child2_gender_female").checked = false;
   document.getElementById("child2_dob_id").value = "";
+  document.getElementById("child2_prev_grade_id").selectedIndex = 0;
 
   document.getElementById("child3_first_name_id").value = "";
   document.getElementById("child3_last_name_id").value = "";
   document.getElementById("child3_gender_male").checked = false;
   document.getElementById("child3_gender_female").checked = false;
   document.getElementById("child3_dob_id").value = "";
+  document.getElementById("child3_prev_grade_id").selectedIndex = 0;
 
   document.getElementById("child4_first_name_id").value = "";
   document.getElementById("child4_last_name_id").value = "";
   document.getElementById("child4_gender_male").checked = false;
   document.getElementById("child4_gender_female").checked = false;
   document.getElementById("child4_dob_id").value = "";
+  document.getElementById("child4_prev_grade_id").selectedIndex = 0;
 
   document.getElementById("mother_first_name_id").value = "";
   document.getElementById("mother_last_name_id").value = "";
@@ -632,11 +716,29 @@ function reset_fields()
   document.getElementById("emergency_phone_id").value = "";
   document.getElementById("member_yes_id").checked = false;
   document.getElementById("member_no_id").checked = false;
-  document.getElementById("parent_handbook_id").checked = false;
-  document.getElementById("signups_id").checked = false;
-  document.getElementById("volunteeer_arabic_id").checked = false;
-  document.getElementById("volunteeer_islam_id").checked = false;
-  document.getElementById("volunteeer_sub_id").checked = false;
+  document.getElementById("tuition_yes_id").checked = false;
+  document.getElementById("tuition_no_id").checked = false;
+  document.getElementById("activities_lunch_id").checked = false;
+  document.getElementById("activities_bake_sale_id").checked = false;
+  document.getElementById("activities_recess_id").checked = false;
+  document.getElementById("activities_after_school_cleanup_id").checked = false;
+  document.getElementById("activities_calendar_id").checked = false;
+  document.getElementById("volunteer_quran_assistant_id").checked = false;
+  document.getElementById("volunteer_islam_assistant_id").checked = false;
+  document.getElementById("volunteer_quran_age_range_id").value = "";
+  document.getElementById("volunteer_islam_age_range_id").value = "";
+  document.getElementById("parent_support_agreement_id").checked = false;
+  document.getElementById("parent_pledge_instill_islamic_values_id").checked = false;
+  document.getElementById("parent_pledge_regular_attendance_id").checked = false;
+  document.getElementById("parent_pledge_reinforce_learning_id").checked = false;
+  document.getElementById("parent_pledge_active_participation_id").checked = false;
+  document.getElementById("parent_pledge_regular_communication_id").checked = false;
+  document.getElementById("release_mccgp_liability_id").checked = false;
+  document.getElementById("release_mccgp_money_damages_id").checked = false;
+  document.getElementById("release_mccgp_all_damages_id").checked = false;
+  document.getElementById("release_mccgp_other_id").checked = false;
+  document.getElementById("field_trip_permission_id").checked = false;
+  document.getElementById("release_mccgp_photo_id").checked = false;
 
   document.getElementById("sign_id").value = "";
 }
@@ -779,6 +881,18 @@ document.getElementById("child1_dob_id").addEventListener("keyup", function() {
   document.getElementById("child1_dob_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
+document.getElementById("child1_prev_grade_id").addEventListener("keyup", function() {
+  document.getElementById("child1_prev_grade_id").classList.remove("border");
+  document.getElementById("child1_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child1_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child1_prev_grade_id").addEventListener("click", function() {
+  document.getElementById("child1_prev_grade_id").classList.remove("border");
+  document.getElementById("child1_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child1_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
 
 // Child2
 document.getElementById("child2_first_name_id").addEventListener("keyup", function() {
@@ -810,6 +924,18 @@ document.getElementById("child2_dob_id").addEventListener("keyup", function() {
   document.getElementById("child2_dob_id").classList.remove("border-danger");
   document.getElementById("child2_dob_alert").style.display = "none";
   document.getElementById("child2_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_prev_grade_id").addEventListener("keyup", function() {
+  document.getElementById("child2_prev_grade_id").classList.remove("border");
+  document.getElementById("child2_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child2_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child2_prev_grade_id").addEventListener("click", function() {
+  document.getElementById("child2_prev_grade_id").classList.remove("border");
+  document.getElementById("child2_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child2_prev_grade_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
 
@@ -845,6 +971,18 @@ document.getElementById("child3_dob_id").addEventListener("keyup", function() {
   document.getElementById("child3_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
+document.getElementById("child3_prev_grade_id").addEventListener("keyup", function() {
+  document.getElementById("child3_prev_grade_id").classList.remove("border");
+  document.getElementById("child3_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child3_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child3_prev_grade_id").addEventListener("click", function() {
+  document.getElementById("child3_prev_grade_id").classList.remove("border");
+  document.getElementById("child3_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child3_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
 
 // Child4
 document.getElementById("child4_first_name_id").addEventListener("keyup", function() {
@@ -876,6 +1014,18 @@ document.getElementById("child4_dob_id").addEventListener("keyup", function() {
   document.getElementById("child4_dob_id").classList.remove("border-danger");
   document.getElementById("child4_dob_alert").style.display = "none";
   document.getElementById("child4_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_prev_grade_id").addEventListener("keyup", function() {
+  document.getElementById("child4_prev_grade_id").classList.remove("border");
+  document.getElementById("child4_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child4_prev_grade_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("child4_prev_grade_id").addEventListener("click", function() {
+  document.getElementById("child4_prev_grade_id").classList.remove("border");
+  document.getElementById("child4_prev_grade_id").classList.remove("border-danger");
+  document.getElementById("child4_prev_grade_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
 
@@ -978,24 +1128,110 @@ document.getElementById("member_no_id").addEventListener("click", function() {
   document.getElementById("member_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("parent_handbook_id").addEventListener("click", function() {
-  document.getElementById("handbook_signup_alert").style.display = "none";
+document.getElementById("tuition_yes_id").addEventListener("click", function() {
+  document.getElementById("tuition_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("signups_id").addEventListener("click", function() {
-  document.getElementById("handbook_signup_alert").style.display = "none";
+document.getElementById("tuition_no_id").addEventListener("click", function() {
+  document.getElementById("tuition_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("volunteeer_arabic_id").addEventListener("click", function() {
-  document.getElementById("volunteeer_alert").style.display = "none";
+document.getElementById("activities_lunch_id").addEventListener("click", function() {
+  document.getElementById("activities_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("volunteeer_islam_id").addEventListener("click", function() {
-  document.getElementById("volunteeer_alert").style.display = "none";
+document.getElementById("activities_bake_sale_id").addEventListener("click", function() {
+  document.getElementById("activities_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("volunteeer_sub_id").addEventListener("click", function() {
-  document.getElementById("volunteeer_alert").style.display = "none";
+document.getElementById("activities_recess_id").addEventListener("click", function() {
+  document.getElementById("activities_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("activities_after_school_cleanup_id").addEventListener("click", function() {
+  document.getElementById("activities_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("activities_calendar_id").addEventListener("click", function() {
+  document.getElementById("activities_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteer_quran_assistant_id").addEventListener("click", function() {
+  if(this.checked) {
+    document.getElementById("volunteer_quran_range_section").style.display = "block";
+  }
+  else {
+    document.getElementById("volunteer_quran_range_section").style.display = "none";
+  }
+  document.getElementById("volunteer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteer_islam_assistant_id").addEventListener("click", function() {
+  if(this.checked) {
+    document.getElementById("volunteer_islam_range_section").style.display = "block";
+  }
+  else {
+    document.getElementById("volunteer_islam_range_section").style.display = "none";
+  }
+  document.getElementById("volunteer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteer_quran_age_range_id").addEventListener("keyup", function() {
+  document.getElementById("volunteer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("volunteer_islam_age_range_id").addEventListener("keyup", function() {
+  document.getElementById("volunteer_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_support_agreement_id").addEventListener("click", function() {
+  document.getElementById("parent_support_agreement_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_pledge_instill_islamic_values_id").addEventListener("click", function() {
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_pledge_regular_attendance_id").addEventListener("click", function() {
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_pledge_reinforce_learning_id").addEventListener("click", function() {
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_pledge_active_participation_id").addEventListener("click", function() {
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("parent_pledge_regular_communication_id").addEventListener("click", function() {
+  document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Release and Waivers Statement
+document.getElementById("release_mccgp_liability_id").addEventListener("click", function() {
+  document.getElementById("release_mccgp_liability_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("release_mccgp_money_damages_id").addEventListener("click", function() {
+  document.getElementById("release_mccgp_other_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("release_mccgp_all_damages_id").addEventListener("click", function() {
+  document.getElementById("release_mccgp_other_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("release_mccgp_other_id").addEventListener("click", function() {
+  document.getElementById("release_mccgp_other_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("field_trip_permission_id").addEventListener("click", function() {
+  document.getElementById("field_trip_permission_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("release_mccgp_photo_id").addEventListener("click", function() {
+  document.getElementById("release_mccgp_photo_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
 
