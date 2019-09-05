@@ -49,13 +49,19 @@ function get_form_data() {
     var str = ""; // declare empty string outside of loop to allow
                   // it to be appended to for each item in the loop
     if(elements[k].type === "checkbox") { // special case for Edge's html collection
-      str = str + elements[k].checked + ", "; // take the string and append
+      if(elements[k].checked)
+      {
+        data[k] = "Yes";
+      } else {
+        data[k] = "No";
+      }
+      /*str = str + elements[k].checked + ", "; // take the string and append
                                               // the current checked value to
                                               // the end of it, along with
                                               // a comma and a space
       data[k] = str.slice(0, -2); // remove the last comma and space
                                   // from the string to make the output
-                                  // prettier in the spreadsheet
+                                  // prettier in the spreadsheet*/
     } else if(elements[k].length) {
       for(var i = 0; i < elements[k].length; i++) {
         if(elements[k].item(i).checked) {
@@ -297,7 +303,8 @@ function check_completion(data) {
   if(!document.getElementById("activities_lunch_id").checked ||
      !document.getElementById("activities_bake_sale_id").checked ||
      !document.getElementById("activities_recess_id").checked ||
-     !document.getElementById("activities_after_school_cleanup_id").checked) {
+     !document.getElementById("activities_after_school_cleanup_id").checked ||
+     !document.getElementById("activities_calendar_id").checked) {
 
     document.getElementById('activities_alert').style.display = "block";
     valid = false;
@@ -576,10 +583,13 @@ function handle_form_submit(event) {
       var result = JSON.parse(xhr.responseText);
       if(result['result'] === 'success') {
         // Display the error page if error was returned
+        document.location.replace('http://www.mccgp.org/school-registration-success.html');
+      } else if(result['result'] === 'already_registered') {
+        // Display already registered page
         document.location.replace('http://www.mccgp.org/school-already-registered.html');
       } else {
         // Display the error page if error was returned
-        document.location.replace('http://www.mccgp.org/school-already-registered.html');
+        document.location.replace('http://www.mccgp.org/school-registration-error.html');
       }
     }
     return;
