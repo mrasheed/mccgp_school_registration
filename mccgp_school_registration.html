@@ -689,7 +689,7 @@
           </div><br>
           <!-- Support Activities  -->
           <div id="activities_section" class="form-group" style="display:block">
-            <h6 class="">I agree to support the following activities, if and when in-person instructions resume,
+            <h6 class="">I agree to support the following activities, if and when applicable,
               at least once per school year:
             </h6>
             <div id="activities_alert" class="alert alert-warning alert-dismissible fade show" style="display:none"
@@ -809,7 +809,7 @@
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="Parent_Pledge_Active_Participation"
                   id="parent_pledge_active_participation_id" value="Yes">
-                Participate in and support Sunday School activities, if and when in-person instructions resume
+                Participate in and support Sunday School activities, if and when applicable
                 (not just drop off)
               </label>
             </div>
@@ -825,8 +825,50 @@
         </div>
       </div>
 
-      <!-- Important Information -->
-      <div id="important_info_id" class="card bg-light border-primary mb-3">
+      <!-- COVID Agreement -->
+      <div id="covid_agreement_id" class="card bg-light border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          COVID Agreement
+        </div>
+        <div class="card-body">
+          <div id="covid_screening_section" class="form-group" style="display:block">
+            <div id="covid_screening_alert" class="alert alert-warning alert-dismissible fade show"
+              style="display:none" role="alert">
+              Please check this to proceed
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="Covid_Screening_Agreement"
+                  id="covid_screening_id" value="Yes">
+                  I agree to screen my child for COVID symptoms including but not limited to fever, chills,
+                  sore throat, cough, diarrhea/abdominal pain, headache, muscle or body aches, shortness of breath or
+                  difficulty breathing, loss of smell or taste, nausea or vomitting. If any of those symptoms are
+                  present, I agree to NOT send my child to MCCGP Sunday School until he/she has recovered
+                  completely.
+              </label>
+            </div>
+          </div><br>
+          <div id="covid_guidelines_section" class="form-group" style="display:block">
+            <div id="covid_guidelines_alert" class="alert alert-warning alert-dismissible fade show"
+              style="display:none" role="alert">
+              Please check this to proceed
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="Covid_Guidelines_Agreement"
+                  id="covid_guidelines_id" value="Yes">
+                  I agree to have my child follow these rules when attending MCCGP Sunday School to help prevent
+                  the spread of COVID-19: wear a mask, social distance from others, cover cough or sneeze, wash
+                  hands frequently or use hand sanitizer containing at least 60% alcohol, qurantine for 10 days
+                  upon returning from domestic or overseas travel.
+              </label>
+            </div>
+          </div><br>
+        </div>
+      </div>
+
+      <!-- Release and Waiver Statements -->
+      <div id="release_waiver_id" class="card bg-light border-primary mb-3">
         <div class="card-header bg-primary text-white">
           Release and Waiver Statements
         </div>
@@ -888,7 +930,7 @@
               style="display:none" role="alert">
               Please check this to proceed
             </div>
-            <h6>Field Trip Permssion Statement (if and when in-person instructions resume)</h6>
+            <h6>Field Trip Permssion Statement (if and when applicable)</h6>
             <div class="form-check">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="Field_Trip_Permission"

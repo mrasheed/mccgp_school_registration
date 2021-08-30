@@ -173,6 +173,8 @@ function reset_alerts() {
   document.getElementById("volunteer_alert").style.display = "none";
   document.getElementById("parent_support_agreement_alert").style.display = "none";
   document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById("covid_screening_alert").style.display = "none";
+  document.getElementById("covid_guidelines_alert").style.display = "none";
   document.getElementById("release_mccgp_liability_alert").style.display = "none";
   document.getElementById("release_mccgp_other_alert").style.display = "none";
   document.getElementById("field_trip_permission_alert").style.display = "none";
@@ -326,6 +328,18 @@ function check_completion(data) {
   if (!document.getElementById("parent_support_agreement_id").checked) {
 
     document.getElementById('parent_support_agreement_alert').style.display = "block";
+    valid = false;
+  }
+
+  if (!document.getElementById("covid_screening_id").checked) {
+
+    document.getElementById('covid_screening_alert').style.display = "block";
+    valid = false;
+  }
+
+  if (!document.getElementById("covid_guidelines_id").checked) {
+
+    document.getElementById('covid_guidelines_alert').style.display = "block";
     valid = false;
   }
 
@@ -725,6 +739,8 @@ function reset_fields() {
   document.getElementById("parent_pledge_reinforce_learning_id").checked = false;
   document.getElementById("parent_pledge_active_participation_id").checked = false;
   document.getElementById("parent_pledge_regular_communication_id").checked = false;
+  document.getElementById("covid_screening_id").checked = false;
+  document.getElementById("covid_guidelines_id").checked = false;
   document.getElementById("release_mccgp_liability_id").checked = false;
   document.getElementById("release_mccgp_money_damages_id").checked = false;
   document.getElementById("release_mccgp_all_damages_id").checked = false;
@@ -1194,6 +1210,16 @@ document.getElementById("parent_pledge_active_participation_id").addEventListene
 });
 document.getElementById("parent_pledge_regular_communication_id").addEventListener("click", function () {
   document.getElementById("parent_pledge_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+
+// Covid Agreement
+document.getElementById("covid_screening_id").addEventListener("click", function () {
+  document.getElementById("covid_screening_alert").style.display = "none";
+  document.getElementById('submit_alert').style.display = "none";
+});
+document.getElementById("covid_guidelines_id").addEventListener("click", function () {
+  document.getElementById("covid_guidelines_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
 
