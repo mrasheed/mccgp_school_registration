@@ -174,7 +174,7 @@ function reset_alerts() {
   document.getElementById("parent_support_agreement_alert").style.display = "none";
   document.getElementById("parent_pledge_alert").style.display = "none";
   document.getElementById("covid_screening_alert").style.display = "none";
-  document.getElementById("covid_guidelines_alert").style.display = "none";
+  //document.getElementById("covid_guidelines_alert").style.display = "none";
   document.getElementById("release_mccgp_liability_alert").style.display = "none";
   document.getElementById("release_mccgp_other_alert").style.display = "none";
   document.getElementById("field_trip_permission_alert").style.display = "none";
@@ -337,11 +337,11 @@ function check_completion(data) {
     valid = false;
   }
 
-  if (!document.getElementById("covid_guidelines_id").checked) {
+  /*if (!document.getElementById("covid_guidelines_id").checked) {
 
     document.getElementById('covid_guidelines_alert').style.display = "block";
     valid = false;
-  }
+  }*/
 
   if (!document.getElementById("parent_pledge_instill_islamic_values_id").checked ||
     !document.getElementById("parent_pledge_regular_attendance_id").checked ||
@@ -740,7 +740,7 @@ function reset_fields() {
   document.getElementById("parent_pledge_active_participation_id").checked = false;
   document.getElementById("parent_pledge_regular_communication_id").checked = false;
   document.getElementById("covid_screening_id").checked = false;
-  document.getElementById("covid_guidelines_id").checked = false;
+  //document.getElementById("covid_guidelines_id").checked = false;
   document.getElementById("release_mccgp_liability_id").checked = false;
   document.getElementById("release_mccgp_money_damages_id").checked = false;
   document.getElementById("release_mccgp_all_damages_id").checked = false;
@@ -1218,10 +1218,10 @@ document.getElementById("covid_screening_id").addEventListener("click", function
   document.getElementById("covid_screening_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
 });
-document.getElementById("covid_guidelines_id").addEventListener("click", function () {
+/*document.getElementById("covid_guidelines_id").addEventListener("click", function () {
   document.getElementById("covid_guidelines_alert").style.display = "none";
   document.getElementById('submit_alert').style.display = "none";
-});
+});*/
 
 // Release and Waivers Statement
 document.getElementById("release_mccgp_liability_id").addEventListener("click", function () {
